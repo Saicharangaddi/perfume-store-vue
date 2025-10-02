@@ -1,4 +1,5 @@
 🧴 Perfume Store Vue
+
 A modern, responsive ecommerce web app for browsing and buying perfumes. Built with Vue 3, Vite, Tailwind CSS, and Iconify, this project showcases modular architecture, clean repo hygiene, and scalable frontend design.
 
 🚀 Features
