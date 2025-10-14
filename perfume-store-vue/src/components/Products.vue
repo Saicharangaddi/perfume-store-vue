@@ -87,7 +87,7 @@
 import { Icon } from '@iconify/vue';
 import { ref, computed, onMounted, onBeforeUnmount } from "vue";
 import axios  from 'axios';
-import { useCartStore } from '../stores/useCartStores'
+import { useCartStore } from '../stores/cart'
 
 const cart = useCartStore()
 const currentSlide = ref(0);
