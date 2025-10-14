@@ -49,11 +49,12 @@
                    items-center justify-center">{{ cart.cartCount }}
                    </span>
                   </button>
-
-
-                   <button class="relative p-2 text-gray-700 hover:text-pink-600" aria-label="Wishlist">
-                       <Icon icon="mdi:account-outline" class="w-5 h-5" />
-                   </button>
+                   <button
+                   class="relative p-2 text-gray-700 hover:text-pink-600"
+                   aria-label="Account"
+                   @click="isAccountOpen = true">
+                   <Icon icon="mdi:account-outline" class="w-5 h-5" />
+                </button>
                   </aside>
                 </div>
             </div>
@@ -78,16 +79,19 @@
          </nav>
     </header>
     <CartDrawer :isOpen="isCartOpen" @close="isCartOpen = false" />
+    <AccountDrawer :isOpen="isAccountOpen" @close="isAccountOpen = false" />
 </template>
 
 <script setup>
 import {ref, onMounted, onUnmounted} from 'vue';
 import { useCartStore } from '../stores/useCartStores'
 import CartDrawer from '../components/CartDrawer.vue'
+import AccountDrawer from '../components/AccountDrawer.vue'
 
 
 const cart = useCartStore()
 const isCartOpen = ref(false)
+const isAccountOpen = ref(false)
 const isScrolled = ref(false);
 const isMobileMenuOpen = ref(false);
 const navItems=[
