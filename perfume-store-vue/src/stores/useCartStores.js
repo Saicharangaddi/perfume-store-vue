@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
-import { ref, computed} from 'vue'
+import { ref, computed } from 'vue'
+import { useAuthStore } from './auth'
 
 export const useCartStore = defineStore('cart', () => {
   const items = ref([])
@@ -8,7 +9,19 @@ export const useCartStore = defineStore('cart', () => {
     items.value.push(product)
   }
 
+  const clearCart = () => {
+    items.value = []
+  }
+
   const cartCount = computed(() => items.value.length)
 
-  return { items, addToCart, cartCount }
+  return { items, addToCart, clearCart, cartCount }
+}, {
+  persist: {
+    key: () => {
+      const auth = useAuthStore()
+      return auth.user?.uid ? `cart-${auth.user.uid}` : 'cart-guest'
+    },
+    paths: ['items']
+  }
 })
