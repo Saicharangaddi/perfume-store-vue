@@ -37,7 +37,12 @@
 <script setup>
 import { computed } from 'vue'
 import { useCartStore } from '../stores/useCartStores'
+import { useRouter } from 'vue-router'
+
+
+const router = useRouter()
 defineProps(['isOpen'])
+
 const cart = useCartStore()
 
 // Total price calculation
@@ -45,9 +50,9 @@ const totalPrice = computed(() =>
   cart.items.reduce((sum, item) => sum + item.price, 0)
 )
 
-// Buy Now handler (placeholder)
+// Buy Now handler
 function handleBuyNow() {
-  alert(`Proceeding to checkout with total: $${totalPrice.value.toFixed(2)}`)
+  router.push('/checkout')
 }
 </script>
 
