@@ -8,12 +8,19 @@
     </div>
 
     <ul v-if="cart.items.length > 0" class="space-y-4">
-      <li v-for="(item, index) in cart.items" :key="index" class="flex items-center space-x-4">
-        <img :src="item.image" alt="Product image" class="w-16 h-16 object-cover rounded" />
+      <li v-for="(item, index) in cart.items" :key="index" 
+      class="flex items-center space-x-4">
+        <img :src="item.image" alt="Product image" 
+        class="w-16 h-16 object-cover rounded"/>
         <div class="flex-1">
           <h3 class="text-sm font-semibold text-gray-800">{{ item.title }}</h3>
           <p class="text-sm text-pink-600 font-bold">${{ item.price.toFixed(2) }}</p>
         </div>
+        <button 
+        @click="removeItem(index)"
+        class="text-xs text-red-500 hover:text-red-700">
+        Remove
+        </button>
       </li>
     </ul>
     <p v-else class="text-gray-500">Your cart is empty.</p>
@@ -25,7 +32,8 @@
       </div>
       <button
         @click="handleBuyNow"
-        class="w-full px-4 py-3 bg-pink-600 text-white font-semibold rounded-lg shadow hover:bg-pink-700 transition"
+        class="w-full px-4 py-3 bg-pink-600 text-white font-semibold rounded-lg 
+        shadow hover:bg-pink-700 transition"
       >
         Buy Now
       </button>
@@ -53,6 +61,10 @@ const totalPrice = computed(() =>
 // Buy Now handler
 function handleBuyNow() {
   router.push('/checkout')
+}
+// Remove item handler
+function removeItem(index) {
+  cart.removeItem(index)
 }
 </script>
 
