@@ -64,5 +64,16 @@ export const useAuthStore = defineStore('auth', () => {
   }
 
   return { user, token, isAuthenticated, login, register, logout, restoreSession }
+  },
+  {
+  persist: {
+    enabled: true,
+    strategies: [
+      {
+        key: 'auth',
+        storage: localStorage 
+      }
+    ]
+  }
 })
 
