@@ -116,14 +116,6 @@ Add fuzzy search, price filters, and advanced sorting.
 - 📨 Email Notifications
 Order confirmation emails, password reset emails, etc.
 
-If you want, I can also:
-✅ Rewrite your entire README in a more polished style
-✅ Add badges (Tech Stack, License, Build Status)
-✅ Add a project logo or banner
-✅ Add API documentation for your backend
-✅ Add a database schema diagram
-✅ Add screenshots of your UI
-Just tell me the direction you want to take next.
 🤝 Contributing
 Pull requests are welcome.
 For major changes, please open an issue first to discuss what you’d like to improve.
