@@ -1,34 +1,39 @@
 🌸 Perfume Store — Full‑Stack E‑Commerce Web App
-A modern, responsive perfume e‑commerce application built with Vue 3 + Vite on the frontend and Node.js + Express on the backend.
-Designed for scalability, clean architecture, and a smooth shopping experience.
+A modern, responsive perfume e‑commerce application built with Vue 3 + Vite on the frontend and Node.js + Express + MongoDB Atlas on the backend.
+Designed with clean architecture, JWT authentication, persistent cart, and a scalable admin dashboard.
 
 🚀 Features
 🖥 Frontend (Vue 3 + Vite)
-- ✅ Fully responsive UI
-- ✅ Dynamic product listing
-- ✅ Category filtering
-- ✅ Cart management
-- ✅ Smooth navigation with Vue Router
-- ✅ Reusable component
-- ✅ Fast development with Vite
-🛠 Backend (Node.js + Express)
-- ✅ REST API for products, categories, offers, and user actions
-- ✅ Clean route/controller structure
-- ✅ Environment‑based configuration
-- ✅ CORS enabled for frontend communication
-- ✅ Scalable folder architecture
+- Fully responsive UI
+- Dynamic product listing
+- Category filtering
+- Persistent cart synced with backend
+- Smooth navigation with Vue Router
+- Reusable, modular components
+- TailwindCSS for modern styling
+- Iconify for scalable icons
+🛠 Backend (Node.js + Express + MongoDB Atlas)
+- REST API for products, categories, offers, and users
+- JWT Authentication (Login, Register, Protected Routes)
+- MongoDB Atlas database integration
+- Admin dashboard APIs (add/edit/delete products, categories, offers)
+- Secure password hashing
+- CORS enabled for frontend communication
+- Clean controller + route structure
 🔗 Full‑Stack Integration
-- ✅ Frontend connected to backend API
-- ✅ Fetches real pr
-- ✅ Unified project structure (frontend/ + backend/)
-- ✅ Ready for deployment (frontend + backend separately or combined)
+- Frontend communicates with backend via REST API
+- Persistent cart stored in MongoDB
+- Authenticated routes for user actions
+- Admin‑only routes for product management
 
 🧱 Tech Stack
-| Layer           | Technology  | 
-| Frontend        | Vue 3, Vite, TailwindCSS, Iconify  | 
-| Backend         | Node.js, Express | 
-| Package Manager | npm | 
-| Version Control | Git + GitHub  | 
+
+|    Layer         |             Technology            | 
+| Frontend         | Vue 3, Vite, TailwindCSS, Iconify | 
+| Backend          |     Node.js, Express              | 
+| Database         |     MongoDB Atlas                 | 
+| Auth             |    JWT (JSON Web Tokens)          | 
+| Version Control  |    Git + GitHub                   | 
 
 
 
@@ -44,28 +49,41 @@ perfume-store-vue/
 ├── backend/                # Node.js + Express API
 │   ├── routes/
 │   ├── controllers/
+│   ├── models/
+│   ├── middleware/
 │   ├── config/
 │   ├── server.js
 │   └── package.json
 │
 └── README.md
+
+
+
 ⚙️ Installation & Setup
-✅ 1. Clone the repository
+1️⃣ Clone the repository
 git clone https://github.com/Saicharangaddi/perfume-store-vue.git
 cd perfume-store-vue
 
 
 
-✅ 2. Setup Backend
+2️⃣ Backend Setup
 cd backend
 npm install
 npm start
+
+
 Backend runs on:
-http://localhost:5000
+http://localhost:3000
+
+
+Backend Environment Variables (backend/.env)
+PORT=3000
+MONGO_URI=your_mongodb_atlas_url
+JWT_SECRET=your_jwt_secret
 
 
 
-✅ 3. Setup Frontend
+3️⃣ Frontend Setup
 cd ../frontend
 npm install
 npm run dev
@@ -76,45 +94,36 @@ http://localhost:5173
 
 
 
-
 🔗 API Integration
-Your frontend communicates with the backend using:
-http://localhost:5000/api/...
-
-
-Example:
+Example API call from frontend:
 const response = await fetch("http://localhost:5000/api/products");
 
 
 
-📦 Environment Variables
-Create a .env file inside backend/:
-PORT=5000
-MONGO_URI=your_database_url   # if using DB later
+🔐 Authentication Flow
+- User registers → stored in MongoDB with hashed password
+- User logs in → receives JWT token
+- Token stored in localStorage
+- Protected routes require token
+- Cart is synced with backend using user ID
 
+🛍 Admin Dashboard
+Admin can:
+- Add / Edit / Delete products
+- Manage categories
+- View user data
+- Access protected admin routes
 
-
-✅ Future Enhancements
-- 🛍 Order Management System
-Allow users to place orders, view order history, and track order status.
-- 👑 Admin Dashboard
-Manage products, categories, offers, and users with a secure admin panel.
-- 💳 Payment Gateway Integration
-Add Stripe, Razorpay, or PayPal for real online payments.
-- 📦 Inventory Management
-Track stock levels, auto‑update inventory after purchases.
-- 🖼 Product Image Uploads (Cloud Storage)
-Integrate Cloudinary, AWS S3, or Firebase Storage for image hosting.
-- 📊 Analytics & Insights
-Dashboard for sales, user activity, and product performance.
-- 🌐 Deployment
-Deploy backend (Render/Heroku) and frontend (Vercel/Netlify) with environment variables.
-- 📱 PWA Support
-Make the app installable on mobile and support offline browsing.
-- 🔍 Search & Filters Upgrade
-Add fuzzy search, price filters, and advanced sorting.
-- 📨 Email Notifications
-Order confirmation emails, password reset emails, etc.
+🚀 Future Enhancements (Updated)
+Since JWT Auth, MongoDB Atlas, Admin Dashboard, and Persistent Cart are already implemented, here are the next meaningful upgrades:
+- 💳 Payment Gateway Integration (Stripe / Razorpay)
+- 📦 Inventory Management System
+- 📨 Email Notifications (order confirmation, password reset)
+- 📊 Analytics Dashboard (sales, users, product performance)
+- 🌐 Deployment (Render for backend, Vercel/Netlify for frontend)
+- 📱 PWA Support (installable app + offline mode)
+- 🔍 Advanced Search & Filters (price range, sorting, fuzzy search)
+- 🖼 Cloud Storage for Product Images (Cloudinary / AWS S3)
 
 🤝 Contributing
 Pull requests are welcome.
@@ -122,11 +131,5 @@ For major changes, please open an issue first to discuss what you’d like to im
 
 📄 License
 This project is open-source and available under the MIT License.
-
-
-
-
-
-
 
 
