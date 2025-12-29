@@ -73,11 +73,11 @@ npm start
 
 
 Backend runs on:
-http://localhost:3000
+http://localhost:5000
 
 
 Backend Environment Variables (backend/.env)
-PORT=3000
+PORT=5000
 MONGO_URI=your_mongodb_atlas_url
 JWT_SECRET=your_jwt_secret
 
