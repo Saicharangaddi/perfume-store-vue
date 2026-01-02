@@ -6,7 +6,6 @@ Designed with clean architecture, JWT authentication, persistent cart, and a sca
 🖥 Frontend (Vue 3 + Vite)
 - Fully responsive UI
 - Dynamic product listing
-- Category filtering
 - Persistent cart synced with backend
 - Smooth navigation with Vue Router
 - Reusable, modular components
